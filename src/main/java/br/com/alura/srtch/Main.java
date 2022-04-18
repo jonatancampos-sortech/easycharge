@@ -11,7 +11,7 @@ import java.io.Reader;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
-// sr teste commit
+// sr teste commit.
 public class Main {
 
   public static void main(String[] args) {
