@@ -36,7 +36,7 @@ public class ClienteController {
 	public String novo(@Valid RequisicaoNovoCliente requisicao, BindingResult result) {
 		
 		if(result.hasErrors()) {
-			return "formulario";
+			return "/cliente/formulario";
 		} 
 		
 		Cliente cliente = requisicao.toCliente();
