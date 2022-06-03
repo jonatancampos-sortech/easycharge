@@ -17,70 +17,119 @@
 			</nav>
 			
 			<div class="form-group">
-			<form th:object="${requisicaoNovoCliente}" action ="/cliente/novo" method="POST" class="formulario-checkout mt-3 mt-sm-0"  >
-			
+			<form th:object="${requisicaoNovoCliente}" action ="/cliente/novo" method="POST" class="formulario-checkout mt-3 mt-sm-0" novalidate  >
+			  <div class="row">
+   			  <div class="col">
 				<div class="form-group">
 					<label for="nome">Nome do Cliente</label>
-					<input th:field="*{nome}" placeholder="nome do cliente" class="form-control" data-tipo="Required" type="text" id="nome" name="nome"  maxlength="200" required/>
-					<div class="invalid-feedback">
-                            O nome é obrigatório.
-                        </div>				
+					<input th:field="*{nome}" placeholder="nome do cliente" class="form-control input" data-tipo="Required" type="text" id="nome" name="nome"  maxlength="200" required/>
+					<div class="invalid-feedback"> O nome é obrigatório.</div>	                         			
 				</div>
-				<div class="mb-3">	
+			 </div>
+   			 <div class="col">
+				<div class="form-group">	
 					<label for="cpf">CPF</label>
 					<input th:field="*{cpf}" placeholder="cpf"  data-tipo="TestaCPF" class="form-control input" type="number" id="cpf" name="cpf"  required/>
-					<div class="invalid-feedback">
-                           Erro CPF.
-                        </div>
-				</div>
+					<div class="invalid-feedback"> O CPF é obrigatório.</div>
+
+               </div>
+  			</div>
+			</div>
+			
+			<div class="row">
+   			<div class="col">
 				<div class="form-group">
 					<label for="telefone">Telefone</label>
-					<input th:field="*{telefone}" placeholder="telefone"/>
+					<input th:field="*{telefone}" placeholder="telefone" data-tipo="TestaTelefone" class="form-control input" type="number" id="telefone" name="telefone"  required/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
 				</div>
-				<div class="mb-3">
+			 </div>
+   			 <div class="col">
+				<div class="form-group">
 					<label for="email">E-mail</label>
-					<input th:field="*{email}" placeholder="email"/>
+					<input th:field="*{email}" placeholder="email" data-tipo="TestaEmail" class="form-control input" type="text" id="email" name="email"  required/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>	
 				</div>
-				<div class="mb-3">
+			</div>
+			</div>
+				
+			<div class="row">
+   			<div class="col">
+				<div class="form-group">
 					<label for="rua">Rua</label>
-					<input th:field="*{rua}" placeholder="rua"/>
+					<input th:field="*{rua}" placeholder="rua" data-tipo="TestaRua" class="form-control input" type="text" id="rua" name="rua"  required/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
 				</div>
-				<div class="mb-3">	
-					<label for="numero">Número</label>
-					<input th:field="*{numero}" placeholder="numero"/>
-				</div >
-				<div class="mb-3">
-					<label for="complemento">Complemento </label>
-					<input th:field="*{complemento}" placeholder="complemento"/>
-				</div>
-				<div class="mb-3">
-					<label for="bairro">Bairro</label>
-					<input th:field="*{bairro}" placeholder="bairro"/>
-				</div>
-				<div class="mb-3">	
-					<label for="cidade">Cidade</label>
-					<input th:field="*{cidade}" placeholder="cidade"/>
-				</div>
-				<div class="mb-3">	
-					<label for="estado">Estado</label>
-					<input th:field="*{estado}" placeholder="estado"/>
-				</div>
-				<div class="mb-3">	
-					<label for="profissao">Profissão</label>
-					<input th:field="*{profissao}" placeholder="profissao"/>
-				</div>
-				<div class="mb-3">	
-					<label for="renda">Renda</label>
-					<input th:field="*{renda}" placeholder="renda"/>
-					<small>Maior que 1</small>
-				<div class="mb-3">	
-					<label for="status">Status</label>
-					<input th:field="*{status}" placeholder="status" /> 
-					<small>ATIVO ou SUSPENSO</small>
-				</div>					
-				</div>
-				<button type="submit">Cadastrar</button>
+			   </div>
 			
+   			 <div class="col">
+				<div class="form-group">	
+					<label for="numero">Número</label>
+					<input th:field="*{numero}" placeholder="numero" data-tipo="TestaNumero" class="form-control input" type="number" id="number" name="number"  required/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
+				</div >
+			  </div>
+			</div>	
+			
+			<div class="row">
+   			<div class="col">
+				<div class="form-group">
+					<label for="complemento">Complemento </label>
+					<input th:field="*{complemento}" placeholder="complemento" data-tipo="TestaComplemento" class="form-control input" type="text" id="complemento" name="complemento"/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
+				</div>
+			 </div>
+   			 <div class="col">
+				<div class="form-group">
+					<label for="bairro">Bairro</label>
+					<input th:field="*{bairro}" placeholder="bairro" data-tipo="TestaBairro" class="form-control input" type="text" id="bairro" name="bairro"  required/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
+				</div>
+			</div>
+			</div>	
+			<div class="row">
+   			<div class="col">
+				<div class="form-group">	
+					<label for="cidade">Cidade</label>
+					<input th:field="*{cidade}" placeholder="cidade" data-tipo="TestaCidade" class="form-control input" type="text" id="cidade" name="cidade"  required/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
+				</div>
+			 </div>
+   			 <div class="col">
+				<div class="form-group">	
+					<label for="estado">Estado</label>
+					<input th:field="*{estado}" placeholder="estado" data-tipo="TestaEstado" class="form-control input" type="number" id="estado" name="estado"  required/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
+				</div>
+			</div>
+			</div>	
+			<div class="row">
+   			<div class="col">
+				<div class="form-group">	
+					<label for="profissao">Profissão</label>
+					<input th:field="*{profissao}" placeholder="profissao" data-tipo="TestaProfissao" class="form-control input" type="text" id="profissao" name="profissao"  required/>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
+				</div>
+			 </div>
+   			 <div class="col">
+				<div class="form-group">	
+					<label for="renda">Renda</label>
+					<input th:field="*{renda}" placeholder="renda" data-tipo="TestaRenda" class="form-control input" type="number" id="renda" name="renda"  required/>
+					<small>Maior que 1</small>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
+				</div>
+			 </div>
+   			 <div class="col">
+				<div class="form-group">	
+					<label for="status">Status</label>
+					<input th:field="*{status}" placeholder="status" data-tipo="TestaStatus" class="form-control input" type="Text" id="status" name="status"  required/> 
+					<small>ATIVO ou SUSPENSO</small>
+					<div class="invalid-feedback"> O campo é obrigatório.</div>
+				</div>				
+			</div>
+			</div>
+				<button type="submit"> Cadastrar</button>
+				<input class="btn btn-primary" type="submit" value="submit">
 			</form>
 			</div>
 		</div>
