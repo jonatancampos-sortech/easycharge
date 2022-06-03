@@ -9,20 +9,24 @@ const validadores = {
     Required: input => Required(input)
 };
 function Required(input) {
-    const formularioCheckout = document.querySelector('.formulario-checkout');
-    formularioCheckout.addEventListener('submit', function (event) {
-        event.preventDefault();
+    const formulario = document.querySelector('.formulario');
+    formulario.addEventListener('submit', function (event) {
+        let valido = true;
         const inputsObrigatorios = document.querySelectorAll('input[required]');
-        inputsObrigatorios.forEach(inputObrigatorio => {
-            if (!inputObrigatorio.nodeValue) {
+        inputsObrigatorios.forEach((inputObrigatorio) => {
+            if (!inputObrigatorio.value) {
                 inputObrigatorio.classList.add('is-invalid');
+                valido = false;
             }
         });
+        if (!valido) {
+            event.preventDefault();
+        }
     });
     const inputsObrigatorios = document.querySelectorAll('input[required]');
-    inputsObrigatorios.forEach(inputObrigatorio => {
+    inputsObrigatorios.forEach((inputObrigatorio) => {
         inputObrigatorio.addEventListener('blur', function () {
-            if (!inputObrigatorio.nodeValue) {
+            if (!inputObrigatorio.value) {
                 inputObrigatorio.classList.add('is-invalid');
                 inputObrigatorio.classList.remove('is-valid');
             }

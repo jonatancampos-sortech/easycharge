@@ -15,24 +15,29 @@ const validadores = {
 
 function Required (input) {
 
-const formularioCheckout = document.querySelector('.formulario-checkout');
+const formulario = document.querySelector('.formulario');
 
-formularioCheckout.addEventListener('submit', function(event) {
-    event.preventDefault();
+formulario.addEventListener('submit', function(event) {
+   let valido = true
 
     const inputsObrigatorios = document.querySelectorAll('input[required]');
-    inputsObrigatorios.forEach(inputObrigatorio => {
-        if(!inputObrigatorio.nodeValue ) {
-            inputObrigatorio.classList.add('is-invalid');
+    inputsObrigatorios.forEach((inputObrigatorio:HTMLInputElement) => {
+        if(!inputObrigatorio.value ) {
+            inputObrigatorio.classList.add('is-invalid')
+            valido = false;
         }
     });
 
+    if(!valido) { 
+        event.preventDefault();
+    }
+   
 });
 
 const inputsObrigatorios = document.querySelectorAll('input[required]');
-inputsObrigatorios.forEach(inputObrigatorio => {
+inputsObrigatorios.forEach((inputObrigatorio:HTMLInputElement)  => {
     inputObrigatorio.addEventListener('blur', function() {
-        if(!inputObrigatorio.nodeValue) {
+        if(!inputObrigatorio.value) {
             inputObrigatorio.classList.add('is-invalid');
             inputObrigatorio.classList.remove('is-valid');
         } else {
